@@ -1,0 +1,2 @@
+#!/bin/bash
+saving all the ip addresses ip_addresses=$(hostname -I)
