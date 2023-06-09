@@ -1,0 +1,3 @@
+#!/bin/bash
+# Set the mode of "hello"
+chmod $mode hello
