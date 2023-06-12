@@ -1,0 +1,22 @@
+#!/bin/bash
+import collections
+
+# Dictionary to store the count of requests per host or IP
+request_count = collections.defaultdict(int)
+
+# Read the log file
+with open('webserver.log', 'r') as log_file:
+    for line in log_file:
+        fields = line.split('\t')
+        if len(fields) > 0:
+            host = fields[0]
+            request_count[host] += 1
+
+# Sort the hosts or IP addresses by request count in descending order
+sorted_hosts = sorted(request_count.items(), key=lambda x: x[1], reverse=True)
+
+# Display the top 11 hosts or IP addresses
+for host, count in sorted_hosts[:11]:
+    print(host)
+
+
